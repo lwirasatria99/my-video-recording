@@ -30,14 +30,13 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.myvideorecording.data.ResultState
-import com.example.myvideorecording.ui.testing.VideoRecordViewModel
 import com.example.myvideorecording.util.getVideoFiles
 import com.example.myvideorecording.util.openVideoPlayer
 import java.io.File
 
 @Composable
 fun VideoListScreen(
-    viewModel: VideoRecordViewModel = hiltViewModel()
+    viewModel: VideoListViewModel = hiltViewModel()
 ) {
     val uploadState by viewModel.uploadState.collectAsState()
     val context = LocalContext.current
@@ -67,11 +66,14 @@ fun VideoListScreen(
 
     Box(modifier = Modifier.fillMaxSize()) {
         if (uploadState is ResultState.Loading) {
-            CircularProgressIndicator(
+            Column(
                 modifier = Modifier
                     .align(Alignment.Center),
-                color = Color.Green
-            )
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                CircularProgressIndicator(color = Color.Green)
+                Text(text = "Uploading... Takes time about 1 minute")
+            }
         } else {
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(text = "Recorded Videos", style = MaterialTheme.typography.headlineMedium)

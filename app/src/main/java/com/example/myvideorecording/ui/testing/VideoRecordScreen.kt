@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.example.myvideorecording.ui.videolist.VideoListViewModel
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -49,7 +50,7 @@ import java.util.TimerTask
 @Composable
 fun VideoRecordScreen(
     navController: NavHostController,
-    viewModel: VideoRecordViewModel = hiltViewModel()
+    viewModel: VideoListViewModel = hiltViewModel()
 ) {
 
     val context = LocalContext.current

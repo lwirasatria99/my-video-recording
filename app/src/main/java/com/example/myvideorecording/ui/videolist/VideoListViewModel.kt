@@ -1,4 +1,4 @@
-package com.example.myvideorecording.ui.testing
+package com.example.myvideorecording.ui.videolist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,7 +13,7 @@ import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
-class VideoRecordViewModel @Inject constructor(
+class VideoListViewModel @Inject constructor(
     private val uploadVideoUseCase: UploadVideoUseCase
 ) : ViewModel() {
 
